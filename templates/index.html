@@ -24,19 +24,19 @@
 </head>
 
 <body>
-  <!-- preloader -->
-  <div class="preloader d-flex align-items-center justify-content-center">
-    <img src="{% static 'img/preloader.gif' %}" alt="preloader">
-  </div>
-  <!-- end preloader -->
-  <!-- welcome message -->
-  <div class="intro">
-    <h1 class="logo-header">
-      <div class="logo">به وبسایت ما</div>
-      <div class="logo">خوش اومدین</div>
-    </h1>
-  </div>
-  <!-- end welcome message -->
+<!--  &lt;!&ndash; preloader &ndash;&gt;-->
+<!--  <div class="preloader d-flex align-items-center justify-content-center">-->
+<!--    <img src="{% static 'img/preloader.gif' %}" alt="preloader">-->
+<!--  </div>-->
+<!--  &lt;!&ndash; end preloader &ndash;&gt;-->
+<!--  &lt;!&ndash; welcome message &ndash;&gt;-->
+<!--  <div class="intro">-->
+<!--    <h1 class="logo-header">-->
+<!--      <div class="logo">به وبسایت ما</div>-->
+<!--      <div class="logo">خوش اومدین</div>-->
+<!--    </h1>-->
+<!--  </div>-->
+<!--  &lt;!&ndash; end welcome message &ndash;&gt;-->
   <!-- start nav -->
   <section class="nav-head section">
     <nav class="navbar navbar-expand-md container">
@@ -89,6 +89,7 @@
                       <button type="button" class="btn message-btn">ارسال پیام </button>
                     </div>
                   </div>
+                </form>
               </div>
             </div>
 
@@ -228,88 +229,90 @@
     <div class="animation-project d-none d-md-inline-block"></div>
     <div class="row gallery">
       <!-- single project -->
+      {% for project in projects %}
       <div class="col-12 col-md-6 col-lg-4 py-4 d-flex align-items-center justify-content-center gallery-img">
         <div class="img-pro">
           <div class="addition">
-            <img src="{% static 'img/project1.jpg' %}" alt="" class="img-fluid pro-photo ">
-              <i class="fas fa-search pro-link"></i>
-          </div>
-          <div class="py-2 pro-name-activity w-100 text-center">
-            <a href="#" class="pro-name font-weight-bold text-center">هوشانه</a>
-            <p class="pro-activity">فروشگاه</p>
-          </div>
-        </div>
-      </div>
-      <!-- end single project -->
-      <!-- single project -->
-      <div class="col-12 col-md-6 col-lg-4 py-4 d-flex align-items-center justify-content-center gallery-img">
-        <div class="img-pro">
-          <div class="addition">
-            <img src="{% static 'img/project1.jpg' %}" alt="" class="img-fluid pro-photo ">
+            <img src="{{ project.image.url }}" alt="" class="img-fluid pro-photo ">
             <i class="fas fa-search pro-link"></i>
           </div>
           <div class="py-2 pro-name-activity w-100 text-center">
-            <a href="#" class="pro-name font-weight-bold text-center">باشگاه یار</a>
-            <p class="pro-activity">اپلیکیشن مدیریت باشگاه</p>
+            <a href="{{ projects.address }}" class="pro-name font-weight-bold text-center">{{ project.title }}</a>
+            <p class="pro-activity">{{ project.description }}</p>
           </div>
         </div>
       </div>
+        {% endfor %}
       <!-- end single project -->
       <!-- single project -->
-      <div class="col-12 col-md-6 col-lg-4 py-4 d-flex align-items-center justify-content-center gallery-img">
-        <div class="img-pro">
-          <div class="addition">
-            <img src="{% static 'img/project1.jpg' %}" alt="" class="img-fluid pro-photo ">
-            <i class="fas fa-search pro-link"></i>
-          </div>
-          <div class="py-2 pro-name-activity w-100 text-center">
-            <a href="#" class="pro-name font-weight-bold text-center">فرخ رخ</a>
-            <p class="pro-activity">فروشگاه</p>
-          </div>
-        </div>
-      </div>
+<!--      <div class="col-12 col-md-6 col-lg-4 py-4 d-flex align-items-center justify-content-center gallery-img">-->
+<!--        <div class="img-pro">-->
+<!--          <div class="addition">-->
+<!--            <img src="{% static 'img/project1.jpg' %}" alt="" class="img-fluid pro-photo ">-->
+<!--            <i class="fas fa-search pro-link"></i>-->
+<!--          </div>-->
+<!--          <div class="py-2 pro-name-activity w-100 text-center">-->
+<!--            <a href="#" class="pro-name font-weight-bold text-center">باشگاه یار</a>-->
+<!--            <p class="pro-activity">اپلیکیشن مدیریت باشگاه</p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
       <!-- end single project -->
       <!-- single project -->
-      <div class="col-12 col-md-6 col-lg-4 py-4 d-flex align-items-center justify-content-center gallery-img">
-        <div class="img-pro">
-          <div class="addition">
-            <img src="{% static 'img/project1.jpg' %}" alt="" class="img-fluid pro-photo ">
-            <i class="fas fa-search pro-link"></i>
-          </div>
-          <div class="py-2 pro-name-activity w-100 text-center">
-            <a href="#" class="pro-name font-weight-bold text-center">آژا فیت</a>
-            <p class="pro-activity">وبلاگ ورزشی</p>
-          </div>
-        </div>
-      </div>
+<!--      <div class="col-12 col-md-6 col-lg-4 py-4 d-flex align-items-center justify-content-center gallery-img">-->
+<!--        <div class="img-pro">-->
+<!--          <div class="addition">-->
+<!--            <img src="{% static 'img/project1.jpg' %}" alt="" class="img-fluid pro-photo ">-->
+<!--            <i class="fas fa-search pro-link"></i>-->
+<!--          </div>-->
+<!--          <div class="py-2 pro-name-activity w-100 text-center">-->
+<!--            <a href="#" class="pro-name font-weight-bold text-center">فرخ رخ</a>-->
+<!--            <p class="pro-activity">فروشگاه</p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
       <!-- end single project -->
       <!-- single project -->
-      <div class="col-12 col-md-6 col-lg-4 py-4 d-flex align-items-center justify-content-center gallery-img">
-        <div class="img-pro">
-          <div class="addition">
-            <img src="{% static 'img/project1.jpg' %}" alt="" class="img-fluid pro-photo ">
-            <i class="fas fa-search pro-link"></i>
-          </div>
-          <div class="py-2 pro-name-activity w-100 text-center">
-            <a href="#" class="pro-name font-weight-bold text-center">لینکدونی</a>
-            <p class="pro-activity">اپلیکیشن</p>
-          </div>
-        </div>
-      </div>
+<!--      <div class="col-12 col-md-6 col-lg-4 py-4 d-flex align-items-center justify-content-center gallery-img">-->
+<!--        <div class="img-pro">-->
+<!--          <div class="addition">-->
+<!--            <img src="{% static 'img/project1.jpg' %}" alt="" class="img-fluid pro-photo ">-->
+<!--            <i class="fas fa-search pro-link"></i>-->
+<!--          </div>-->
+<!--          <div class="py-2 pro-name-activity w-100 text-center">-->
+<!--            <a href="#" class="pro-name font-weight-bold text-center">آژا فیت</a>-->
+<!--            <p class="pro-activity">وبلاگ ورزشی</p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
       <!-- end single project -->
       <!-- single project -->
-      <div class="col-12 col-md-6 col-lg-4 py-4 d-flex align-items-center justify-content-center gallery-img">
-        <div class="img-pro">
-          <div class="addition">
-            <img src="{% static 'img/project1.jpg' %}" alt="" class="img-fluid pro-photo ">
-            <i class="fas fa-search pro-link"></i>
-          </div>
-          <div class="py-2 pro-name-activity w-100 text-center">
-            <a href="#" class="pro-name font-weight-bold text-center">فات چمپیون</a>
-            <p class="pro-activity">فروشگاه</p>
-          </div>
-        </div>
-      </div>
+<!--      <div class="col-12 col-md-6 col-lg-4 py-4 d-flex align-items-center justify-content-center gallery-img">-->
+<!--        <div class="img-pro">-->
+<!--          <div class="addition">-->
+<!--            <img src="{% static 'img/project1.jpg' %}" alt="" class="img-fluid pro-photo ">-->
+<!--            <i class="fas fa-search pro-link"></i>-->
+<!--          </div>-->
+<!--          <div class="py-2 pro-name-activity w-100 text-center">-->
+<!--            <a href="#" class="pro-name font-weight-bold text-center">لینکدونی</a>-->
+<!--            <p class="pro-activity">اپلیکیشن</p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+      <!-- end single project -->
+      <!-- single project -->
+<!--      <div class="col-12 col-md-6 col-lg-4 py-4 d-flex align-items-center justify-content-center gallery-img">-->
+<!--        <div class="img-pro">-->
+<!--          <div class="addition">-->
+<!--            <img src="{% static 'img/project1.jpg' %}" alt="" class="img-fluid pro-photo ">-->
+<!--            <i class="fas fa-search pro-link"></i>-->
+<!--          </div>-->
+<!--          <div class="py-2 pro-name-activity w-100 text-center">-->
+<!--            <a href="#" class="pro-name font-weight-bold text-center">فات چمپیون</a>-->
+<!--            <p class="pro-activity">فروشگاه</p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
       <!-- end single project -->
     </div>
   </section>
@@ -564,15 +567,16 @@
       </div>
       <!--form  -->
       <div class="col-12 col-lg-6">
-        <form>
+        <form method="post">
+          {% csrf_token %}
           <div class="form-group py-5 py-lg-0">
-            <input type="text" class="form-control my-2 form-box" placeholder="نام..." required id="InputName">
-            <input type="email" class="form-control my-2 form-box" required placeholder="ایمیل..." id="InputEmail"
+            <input name="name" type="text" class="form-control my-2 form-box" placeholder="نام..." required id="InputName">
+            <input name="email" type="email" class="form-control my-2 form-box" required placeholder="ایمیل..." id="InputEmail"
               aria-describedby="emailHelp">
-            <input type="text" class="form-control my-2 form-box" placeholder="موضوع..." id="InputName">
-            <textarea name="body" id="message" class="my-2 w-100 form-box" placeholder="پیام..."></textarea>
+            <input name="subject" type="text" class="form-control my-2 form-box" placeholder="موضوع..." id="InputName">
+            <textarea name="message" id="message" class="my-2 w-100 form-box" placeholder="پیام..."></textarea>
             <div class="w-100 text-center">
-              <button class="btn message-btn text-center">ارسال پیام</button>
+              <button type="submit" class="btn message-btn text-center">ارسال پیام</button>
             </div>
           </div>
         </form>
@@ -593,17 +597,17 @@
         <div class="col-12 col-md-4 my-4 my-md-0">
           <p class="footer-text">مارا در شبکه های اجتماعی دنبال کنید</p>
           <div class="footer-icons">
-            <a href="https://instagram.com/faracodeteam"><i class="fab fa-instagram footer-icon" title="Instagram"></i></a>
-            <a href="https://te.me/@Samancfu"><i class="fab fa-telegram footer-icon" title="Telegram"></i></a>
-            <a href="https://wa.me/+989910549803"><i class="fab fa-whatsapp footer-icon" title="Whatsapp"></i></a>
+            <a href="{{ footer.instagram_url }}"><i class="fab fa-instagram footer-icon" title="Instagram"></i></a>
+            <a href="{{ footer.telegram_url }}"><i class="fab fa-telegram footer-icon" title="Telegram"></i></a>
+            <a href="{{ footer.whatsapp_url }}"><i class="fab fa-whatsapp footer-icon" title="Whatsapp"></i></a>
           </div>
         </div>
         <div class="col-12 col-md-4">
           <h3 class="footer-title">تماس با ما</h3>
-          <p class="footer-text">آدرس پستی:اهواز، کیان آباد</p>
-          <p class="footer-text">کیان آباد</p>
-          <p class="footer-text">91232424223+</p>
-          <p class="footer-email">faracodeteam@gmail.com</p>
+          <p class="footer-text">آدرس پستی:{{ footer.address }}</p>
+          <p class="footer-text">{{ footer.city }}</p>
+          <p class="footer-text">{{ footer.phone_number }}</p>
+          <p class="footer-email">{{ footer.email }}</p>
         </div>
       </div>
     </div>
