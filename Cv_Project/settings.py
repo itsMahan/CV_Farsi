@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
 
     'projects_app',
+    'contactUs_app.apps.ContactusAppConfig',
 ]
 
 MIDDLEWARE = [

@@ -89,6 +89,7 @@
                       <button type="button" class="btn message-btn">ارسال پیام </button>
                     </div>
                   </div>
+                </form>
               </div>
             </div>
 
@@ -566,15 +567,16 @@
       </div>
       <!--form  -->
       <div class="col-12 col-lg-6">
-        <form>
+        <form method="post">
+          {% csrf_token %}
           <div class="form-group py-5 py-lg-0">
-            <input type="text" class="form-control my-2 form-box" placeholder="نام..." required id="InputName">
-            <input type="email" class="form-control my-2 form-box" required placeholder="ایمیل..." id="InputEmail"
+            <input name="name" type="text" class="form-control my-2 form-box" placeholder="نام..." required id="InputName">
+            <input name="email" type="email" class="form-control my-2 form-box" required placeholder="ایمیل..." id="InputEmail"
               aria-describedby="emailHelp">
-            <input type="text" class="form-control my-2 form-box" placeholder="موضوع..." id="InputName">
-            <textarea name="body" id="message" class="my-2 w-100 form-box" placeholder="پیام..."></textarea>
+            <input name="subject" type="text" class="form-control my-2 form-box" placeholder="موضوع..." id="InputName">
+            <textarea name="message" id="message" class="my-2 w-100 form-box" placeholder="پیام..."></textarea>
             <div class="w-100 text-center">
-              <button class="btn message-btn text-center">ارسال پیام</button>
+              <button type="submit" class="btn message-btn text-center">ارسال پیام</button>
             </div>
           </div>
         </form>
@@ -595,17 +597,17 @@
         <div class="col-12 col-md-4 my-4 my-md-0">
           <p class="footer-text">مارا در شبکه های اجتماعی دنبال کنید</p>
           <div class="footer-icons">
-            <a href="https://instagram.com/faracodeteam"><i class="fab fa-instagram footer-icon" title="Instagram"></i></a>
-            <a href="https://te.me/@Samancfu"><i class="fab fa-telegram footer-icon" title="Telegram"></i></a>
-            <a href="https://wa.me/+989910549803"><i class="fab fa-whatsapp footer-icon" title="Whatsapp"></i></a>
+            <a href="{{ footer.instagram_url }}"><i class="fab fa-instagram footer-icon" title="Instagram"></i></a>
+            <a href="{{ footer.telegram_url }}"><i class="fab fa-telegram footer-icon" title="Telegram"></i></a>
+            <a href="{{ footer.whatsapp_url }}"><i class="fab fa-whatsapp footer-icon" title="Whatsapp"></i></a>
           </div>
         </div>
         <div class="col-12 col-md-4">
           <h3 class="footer-title">تماس با ما</h3>
-          <p class="footer-text">آدرس پستی:اهواز، کیان آباد</p>
-          <p class="footer-text">کیان آباد</p>
-          <p class="footer-text">91232424223+</p>
-          <p class="footer-email">faracodeteam@gmail.com</p>
+          <p class="footer-text">آدرس پستی:{{ footer.address }}</p>
+          <p class="footer-text">{{ footer.city }}</p>
+          <p class="footer-text">{{ footer.phone_number }}</p>
+          <p class="footer-email">{{ footer.email }}</p>
         </div>
       </div>
     </div>
